@@ -1,0 +1,101 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckss28qu1qkdw"]
+
+[ext_resource type="Script" path="res://Titlescreen.gd" id="1"]
+[ext_resource type="FontFile" uid="uid://dqw1l7ds7sp6q" path="res://ChiKareGo2.ttf" id="2_mcoq5"]
+[ext_resource type="Texture2D" uid="uid://dj5igng8nyx0m" path="res://playsymbol.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cm0k6rt0wmqnp" path="res://questionmark.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bfv2g6j45hm0b" path="res://exitt.png" id="5"]
+
+[node name="Titlescreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+metadata/_edit_horizontal_guides_ = [325.0]
+metadata/_edit_vertical_guides_ = [1148.0]
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 225.0
+offset_bottom = 248.0
+grow_horizontal = 2
+pivot_offset = Vector2(579, 11)
+alignment = 1
+
+[node name="Title" type="Label" parent="Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mcoq5")
+theme_override_font_sizes/font_size = 30
+text = "MINESWEEPER
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Centrebox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.5
+offset_right = 100.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 50.5)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Buttons" type="VBoxContainer" parent="Centrebox"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Play_button" type="Button" parent="Centrebox/Buttons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mcoq5")
+theme_override_font_sizes/font_size = 20
+text = "Play"
+
+[node name="Howtoplay_button" type="Button" parent="Centrebox/Buttons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mcoq5")
+theme_override_font_sizes/font_size = 20
+text = "How to Play"
+
+[node name="Exit_button" type="Button" parent="Centrebox/Buttons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mcoq5")
+theme_override_font_sizes/font_size = 20
+text = "Exit"
+
+[node name="Playsymbol" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(695, 288)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("3")
+
+[node name="Questionmark" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(573, 389)
+scale = Vector2(0.0212335, 0.0201048)
+texture = ExtResource("4")
+
+[node name="Exitt" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(608, 359)
+scale = Vector2(0.0656738, 0.0566406)
+texture = ExtResource("5")
+
+[connection signal="pressed" from="Centrebox/Buttons/Play_button" to="." method="_on_Play_button_pressed"]
+[connection signal="pressed" from="Centrebox/Buttons/Howtoplay_button" to="." method="_on_Howtoplay_button_pressed"]
+[connection signal="pressed" from="Centrebox/Buttons/Exit_button" to="." method="_on_Exit_button_pressed"]

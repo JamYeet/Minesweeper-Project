@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpfxwangujf28"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1"]
+[ext_resource type="Script" path="res://Minesweeper.gd" id="3"]
+[ext_resource type="Script" path="res://Score_text.gd" id="4"]
+
+[node name="Minesweeper" type="Node"]
+script = ExtResource("3")
+
+[node name="Main" type="Node2D" parent="."]
+script = ExtResource("1")
+
+[node name="Centrebox" type="HBoxContainer" parent="."]
+offset_left = 1046.0
+offset_top = 132.0
+offset_right = 1114.0
+offset_bottom = 163.0
+pivot_offset = Vector2(-2, -1)
+
+[node name="Option_buttons" type="VBoxContainer" parent="Centrebox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Give_up" type="Button" parent="Centrebox/Option_buttons"]
+layout_mode = 2
+text = "Give Up"
+
+[node name="Score_text" type="Label" parent="."]
+offset_left = 1078.0
+offset_top = 106.0
+offset_right = 1079.0
+offset_bottom = 129.0
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4")
+
+[node name="Score_timer" type="Timer" parent="Score_text"]
+process_callback = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+color = Color(0.129412, 0.12549, 0.12549, 1)
+
+[connection signal="pressed" from="Centrebox/Option_buttons/Give_up" to="." method="_on_Give_up_pressed"]
+[connection signal="timeout" from="Score_text/Score_timer" to="Score_text" method="_on_Score_timer_timeout"]

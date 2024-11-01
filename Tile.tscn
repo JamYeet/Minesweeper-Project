@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://qppyk6ciqenv"]
+
+[ext_resource type="Texture2D" uid="uid://641dm7b453nf" path="res://back of tlie.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://c5l5yqvhvbf7t" path="res://flag.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bnbgwwuv3c3ye" path="res://bomb.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://b527xxm1jpisu" path="res://tile cover.png" id="4"]
+[ext_resource type="Script" path="res://Tile.gd" id="6"]
+[ext_resource type="Texture2D" uid="uid://cjsk5asmwljvq" path="res://red.jpg" id="8"]
+
+[sub_resource type="CanvasItemMaterial" id="2"]
+blend_mode = 1
+
+[node name="Tile" type="Node2D"]
+script = ExtResource("6")
+
+[node name="Back" type="Sprite2D" parent="."]
+scale = Vector2(0.0478516, 0.046875)
+texture = ExtResource("1")
+centered = false
+
+[node name="Bomb" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, 1)
+scale = Vector2(0.276471, 0.270588)
+texture = ExtResource("3")
+centered = false
+
+[node name="Red_fade" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.972549, 0.972549, 0.972549, 1)
+light_mask = 0
+material = SubResource("2")
+scale = Vector2(0.163663, 0.16143)
+texture = ExtResource("8")
+centered = false
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 48.0
+offset_bottom = 48.0
+
+[node name="Label" type="Label" parent="."]
+offset_right = 49.0
+offset_bottom = 48.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cover" type="Sprite2D" parent="."]
+scale = Vector2(0.101194, 0.0992261)
+texture = ExtResource("4")
+centered = false
+
+[node name="Flag" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(9, 9)
+scale = Vector2(0.442857, 0.442857)
+texture = ExtResource("2")
+centered = false
+
+[connection signal="gui_input" from="Control" to="." method="_on_Control_gui_input"]

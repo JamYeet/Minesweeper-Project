@@ -1,0 +1,7 @@
+CONTROLS:
+-Left Click to remove a tile
+-Right Click to flag a tile
+
+HOW TO PLAY:
+- REMOVE all tiles with no bombs
+- FLAG all tiles with bombs 

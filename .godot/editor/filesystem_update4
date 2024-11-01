@@ -1,0 +1,11 @@
+res://Titlescreen.tscn
+res://Gamemode_Menu.tscn
+res://Global.tscn
+res://Minesweeper.tscn
+res://Tile.tscn
+res://WinLose_Screen.tscn
+res://WinLose_Screen.gd
+res://Score_text.gd
+res://Minesweeper.gd
+res://Main.gd
+res://Tile.gd
